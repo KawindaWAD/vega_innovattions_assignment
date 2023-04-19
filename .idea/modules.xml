@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/vega_innovattions_assignmen.iml" filepath="$PROJECT_DIR$/vega_innovattions_assignmen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/vega_innovattions_assignmen_android.iml" filepath="$PROJECT_DIR$/android/vega_innovattions_assignmen_android.iml" />
+    </modules>
+  </component>
+</project>
