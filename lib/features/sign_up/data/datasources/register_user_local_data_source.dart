@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/errors/exceptions.dart';
-import '../../../../core/utils/strings/shared_preferences_keys.dart';
+import '../../../../core/utils/const/shared_preferences_keys.dart';
 import '../../domain/usecases/register_user.dart';
 import '../models/registered_user_model.dart';
 

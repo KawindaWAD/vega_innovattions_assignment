@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/blocs/authentication/authentication_bloc.dart';
 import 'features/dashboard/presentation/dashboard.dart';
+import 'features/home/presentation/home.dart';
 import 'features/sign_in/presentation/login_screen.dart';
 import 'injector.dart';
 
@@ -45,7 +46,7 @@ class VegaApp extends StatelessWidget {
     ]);
 
     switch(context.read<AuthenticationBloc>().state.authenticationStatus) {
-      case AuthenticationStatus.authenticated: return const DashBoard();
+      case AuthenticationStatus.authenticated: return const HomeScreenWrapper();
       default: return const LoginScreenWrapper();
     }
   }
@@ -53,7 +54,7 @@ class VegaApp extends StatelessWidget {
   /// User will redirect to the login screen when the user session expired or user logout
   void _authListener(BuildContext context, AuthenticationState state) {
     switch (state.authenticationStatus) {
-      case AuthenticationStatus.authenticated: Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const DashBoard() ), (route) => route.isFirst);
+      case AuthenticationStatus.authenticated: Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const HomeScreenWrapper() ), (route) => route.isFirst);
       break;
       case AuthenticationStatus.logOutInProgress: {
         EasyLoading.show(status: "Login out!", dismissOnTap: false);

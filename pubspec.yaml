@@ -30,6 +30,9 @@ dependencies:
   formz: ^0.4.1
   another_flushbar: ^1.12.29
   flutter_easyloading: ^3.0.5
+  flutter_svg: ^2.0.5
+  carousel_slider: ^4.2.1
+  flutter_snake_navigationbar: ^0.6.1
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +44,8 @@ flutter:
 
   assets:
     - assets/
+    - assets/images/
+    - assets/fonts/
 
   fonts:
     - family: Nunito
