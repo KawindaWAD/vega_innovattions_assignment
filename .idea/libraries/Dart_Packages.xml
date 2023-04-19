@@ -2,6 +2,13 @@
   <library name="Dart Packages" type="DartPackagesLibraryType">
     <properties>
       <option name="packageNameToDirsMap">
+        <entry key="another_flushbar">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/another_flushbar-1.12.29/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="async">
           <value>
             <list>
@@ -156,6 +163,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_easyloading">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_easyloading-3.0.5/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_lints">
           <value>
             <list>
@@ -167,6 +181,13 @@
           <value>
             <list>
               <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_screenutil-5.7.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="flutter_spinkit">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_spinkit-5.1.0/lib" />
             </list>
           </value>
         </entry>
@@ -184,10 +205,24 @@
             </list>
           </value>
         </entry>
+        <entry key="formz">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/formz-0.4.1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="get_it">
           <value>
             <list>
               <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/get_it-7.2.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="hive">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/hive-2.2.3/lib" />
             </list>
           </value>
         </entry>
@@ -202,6 +237,13 @@
           <value>
             <list>
               <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/http_parser-4.0.2/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="hydrated_bloc">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/hydrated_bloc-8.1.0/lib" />
             </list>
           </value>
         </entry>
@@ -530,6 +572,7 @@
       </option>
     </properties>
     <CLASSES>
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/another_flushbar-1.12.29/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/async-2.10.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/bloc-8.1.1/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/bloc_concurrency-0.2.1/lib" />
@@ -551,11 +594,16 @@
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_bloc-8.1.2/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_blurhash-0.7.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_cache_manager-3.3.0/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_easyloading-3.0.5/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-2.0.1/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_screenutil-5.7.0/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_spinkit-5.1.0/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/formz-0.4.1/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/get_it-7.2.0/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/hive-2.2.3/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/http-0.13.5/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/http_parser-4.0.2/lib" />
+      <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/hydrated_bloc-8.1.0/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/internet_connection_checker-1.0.0+1/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.5/lib" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/lints-2.0.1/lib" />

@@ -5,10 +5,16 @@ abstract class AppColors {
 
   static const black = Color(0xff000000);
   static const white = Color(0xffffffff);
-  static const Color transparent = Colors.transparent;
-  static const Color grey = Colors.grey;
-  static const Color black12 = Colors.black12;
-  static const Color black26 = Colors.black26;
-  static const Color black45 = Colors.black45;
-  static const Color button = Color(0xff3d5af1);
+  static const green = Colors.green;
+  static const red = Color(0xffFF3A44);
+
+
+  static const Color blueButton = Color(0xFF5468FF);
+  static const Color blueText = Color(0xFF4D60E7);
+
+  static const Color grayText = Color(0xFF5D5F65);
+  static const Color whiteText = Color(0xFFEDEEEF);
+
+  static const Color blackBG = Color(0xFF181A20);
+  static const Color blackTextField = Color(0xFF262A34);
 }
