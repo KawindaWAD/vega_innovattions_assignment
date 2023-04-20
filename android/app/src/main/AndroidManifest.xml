@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vega.vega_innovattions_assignmen">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="vega_innovattions_assignmen"
         android:name="${applicationName}"

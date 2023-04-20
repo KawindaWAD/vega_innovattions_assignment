@@ -28,7 +28,7 @@ class AuthenticationBloc extends HydratedBloc<AuthenticationEvent, Authenticatio
       authenticationStatus: AuthenticationStatus.logOutInProgress,
     ));
 
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
 
     emit(state.copyWith(
       authenticationStatus: AuthenticationStatus.unauthenticated,
