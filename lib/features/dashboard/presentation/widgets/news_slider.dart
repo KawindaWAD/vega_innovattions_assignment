@@ -25,7 +25,7 @@ class NewsSlider extends StatelessWidget {
               initialPage: 0,
               enableInfiniteScroll: false,
               reverse: false,
-              autoPlay: true,
+              autoPlay: state.status == Status.loadSuccess? true : false,
               autoPlayInterval: const Duration(seconds: 3),
               autoPlayAnimationDuration: const Duration(milliseconds: 800),
               autoPlayCurve: Curves.fastOutSlowIn,
