@@ -88,3 +88,5 @@ Overall, I believe that this app is a great example of a well-designed and well-
 ## Workable demo
 
 I have created a demo video of the app to showcase its features and functionality. You can find the video on our Google Drive [here](https://drive.google.com/file/d/1VpI42HJZbXDxvXoVl8OGAAroenuTylUA/view?usp=sharing)
+
+Additionally, if you would like to test the app on your Android device, you can download the APK file from [here]([insert link to download APK file](https://drive.google.com/file/d/1BO99CoqqfkO0nkgjg6Eqc95HZbX8TgwR/view?usp=sharing)). Please note that you may need to enable "Unknown sources" in your device's settings to install the app.
