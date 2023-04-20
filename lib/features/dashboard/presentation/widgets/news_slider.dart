@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/enums/bloc_state_status.dart';
+import '../../../common/presentation/widgets/error_widget.dart';
 import '../bloc/breaking_news/breaking_news_bloc.dart';
 import 'shimmers/slider_card_shimmer.dart';
 import 'slider_card.dart';
@@ -17,6 +18,9 @@ class NewsSlider extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: BlocBuilder<BreakingNewsBloc, BreakingNewsState>(
         builder: (context, state) {
+          if(state.status == Status.loadFailure) {
+            return ErrorDisplayWidget(message: state.errorMessage,);
+          }
           return CarouselSlider(
             options: CarouselOptions(
               height: 240.h,

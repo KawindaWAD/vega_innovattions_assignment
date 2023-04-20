@@ -6,6 +6,7 @@ import 'package:vega_innovattions_assignmen/features/sign_up/data/repositories/u
 
 import 'core/network/dio_client.dart';
 import 'core/network/network_info.dart';
+import 'features/all_news/presentation/bloc/all_news/all_news_bloc.dart';
 import 'features/common/data/datasources/news_remote_data_source.dart';
 import 'features/common/data/repositories/news_repository_impl.dart';
 import 'features/common/domain/repositories/news_repository.dart';

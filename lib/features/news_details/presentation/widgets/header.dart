@@ -35,14 +35,11 @@ class CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
         AnimatedOpacity(
           duration: const Duration(milliseconds: 150),
           opacity: 1 - progress,
-          child: Hero(
-            tag: article.title,
-            child: CachedNetworkImage(
-              imageUrl: article.urlToImage,
-              placeholder: (context, url) => shimmerLoader(),
-              errorWidget: (context, url, error) => Image.asset('assets/images/error_background.jpg', fit: BoxFit.cover,),
-              fit: BoxFit.cover,
-            ),
+          child: CachedNetworkImage(
+            imageUrl: article.urlToImage,
+            placeholder: (context, url) => shimmerLoader(),
+            errorWidget: (context, url, error) => Image.asset('assets/images/error_background.jpg', fit: BoxFit.cover,),
+            fit: BoxFit.cover,
           ),
         ),
         AnimatedContainer(
@@ -68,6 +65,7 @@ class CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
               ),
               maxLines: 1,
               overflow: TextOverflow.clip,
+              textAlign: TextAlign.center,
             ),
           ),
         ),

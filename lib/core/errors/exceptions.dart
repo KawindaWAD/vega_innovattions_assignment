@@ -82,6 +82,9 @@ class ServerException implements Exception {
       case 500:
         unexpectedError = true;
         return "Internal server error. Please contact admin!";
+      case 426:
+        unexpectedError = true;
+        return "You have requested too many results. Developer accounts are limited to a max of 100 results. You are trying to request results 100 to 120. Please upgrade to a paid plan if you need more results.";
       default:
         unexpectedError = true;
         return "Oops something went wrong! Error ${statusCode.toString()}";

@@ -12,7 +12,7 @@ Future<void> main() async {
   await setupLocators();
 
   /// Enable/Disable Logs
-  Bloc.observer = SmabooBlocObserver(); // Setup global observer to monitor all blocs.
+  // Bloc.observer = SmabooBlocObserver(); // Setup global observer to monitor all blocs.
 
   ConfigEasyLoader.darkTheme(); // Set theme for EasyLoader indicator
 

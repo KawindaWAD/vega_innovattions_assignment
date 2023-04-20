@@ -1,0 +1,1 @@
+enum ApiType { everything, topHeaders }

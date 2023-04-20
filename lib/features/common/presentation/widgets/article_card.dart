@@ -35,16 +35,13 @@ class ArticleCard extends StatelessWidget {
               return Stack(
                 alignment: Alignment.centerLeft,
                 children: [
-                  Hero(
-                    tag: article.title,
-                    child: CachedNetworkImage(
-                      imageUrl: article.urlToImage,
-                      placeholder: (context, url) => shimmerLoader(),
-                      errorWidget: (context, url, error) => Image.asset('assets/images/error_background.jpg', fit: BoxFit.cover,),
-                      fit: BoxFit.cover,
-                      height: constraints.maxHeight,
-                      width: constraints.maxWidth,
-                    ),
+                  CachedNetworkImage(
+                    imageUrl: article.urlToImage,
+                    placeholder: (context, url) => shimmerLoader(),
+                    errorWidget: (context, url, error) => Image.asset('assets/images/error_background.jpg', fit: BoxFit.cover,),
+                    fit: BoxFit.cover,
+                    height: constraints.maxHeight,
+                    width: constraints.maxWidth,
                   ),
                   Container(
                     height: constraints.maxHeight,

@@ -28,7 +28,7 @@ class BreakingNewsBloc extends Bloc<BreakingNewsEvent, BreakingNewsState> {
       String message = '';
       if(failure is ServerFailure) {
         message = failure.message;
-      } if(failure is NoConnectionFailure) {
+      } else if(failure is NoConnectionFailure) {
         message = "You are not connect to the internet!";
       } else {
         message = "Something went wrong!";
