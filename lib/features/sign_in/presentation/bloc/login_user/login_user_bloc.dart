@@ -6,8 +6,8 @@ import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 import 'package:vega_innovattions_assignmen/features/sign_in/domain/entities/user_details_entity.dart';
 
-import '../../../../../core/blocs/event_transformer.dart';
 import '../../../../../core/errors/failures.dart';
+import '../../../../common/presentation/blocs/event_transformer.dart';
 import '../../../../sign_up/data/models/form_models/email_form_model.dart';
 import '../../../../sign_up/data/models/form_models/password_form_model.dart';
 import '../../../domain/usecases/login_user.dart';

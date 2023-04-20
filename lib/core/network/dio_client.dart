@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 import '../utils/api_endpoints.dart';
+import '../utils/const/const.dart';
 
 class DioClient {
   Dio public;
@@ -12,6 +13,7 @@ class DioClient {
       receiveTimeout: 15000, // in milliseconds
       responseType: ResponseType.plain,
       headers: {
+        "X-Api-Key" : apiKey
       }
     );
   }

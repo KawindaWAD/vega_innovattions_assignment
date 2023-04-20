@@ -3,8 +3,8 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:vega_innovattions_assignmen/vega_app.dart';
 
-import 'core/blocs/bloc_observer.dart';
 import 'core/functions/easy_loader_config.dart';
+import 'features/common/presentation/blocs/bloc_observer.dart';
 import 'injector.dart';
 
 Future<void> main() async {

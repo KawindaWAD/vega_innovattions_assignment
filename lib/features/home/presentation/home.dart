@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../core/utils/colors.dart';
+import '../../../core/utils/const/const.dart';
 import '../../../core/utils/text_style.dart';
+import '../../../injector.dart';
+import '../../dashboard/presentation/bloc/breaking_news/breaking_news_bloc.dart';
+import '../../dashboard/presentation/bloc/top_news/top_news_bloc.dart';
 import '../../dashboard/presentation/dashboard.dart';
 
 class HomeScreenWrapper extends StatelessWidget {
@@ -12,7 +16,17 @@ class HomeScreenWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeScreen();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<BreakingNewsBloc>(
+          create: (context) => sl<BreakingNewsBloc>()..add(const BreakingNewsRequested()),
+        ),
+        BlocProvider<TopNewsBloc>(
+          create: (context) => sl<TopNewsBloc>()..add(TopNewsRequested(category: categoryStringList.first)),
+        ),
+      ],
+      child: const HomeScreen(),
+    );
   }
 }
 
@@ -26,10 +40,6 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState
     extends State<HomeScreen> {
-  final BorderRadius _borderRadius = const BorderRadius.only(
-    topLeft: Radius.circular(25),
-    topRight: Radius.circular(25),
-  );
 
   ShapeBorder? bottomBarShape = const RoundedRectangleBorder(
     borderRadius: BorderRadius.all(Radius.circular(32)),
@@ -63,65 +73,71 @@ class HomeScreenState
 
   static final List<Widget> _widgetOptions = <Widget>[
     const DashBoard(),
-    Container(),
+    SizedBox(child: Container(
+      width: double.infinity,
+      height: 30000,
+      color: Colors.green,
+    )),
     Container(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      resizeToAvoidBottomInset: true,
-      extendBody: true,
-      body: _widgetOptions.elementAt(_selectedIndex),
-      bottomNavigationBar: SnakeNavigationBar.color(
-        height: 66,
-        behaviour: snakeBarStyle,
-        snakeShape: snakeShape,
-        shape: bottomBarShape,
-        padding: padding,
-        elevation: 4,
-        ///configuration for SnakeNavigationBar.color
-        snakeViewColor: const Color(0xFFE0E0E0),
-        selectedItemColor:
-        snakeShape == SnakeShape.indicator ? selectedColor : null,
-        unselectedItemColor: unselectedColor,
+    return SafeArea(
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        resizeToAvoidBottomInset: true,
+        extendBody: true,
+        body: _widgetOptions.elementAt(_selectedIndex),
+        bottomNavigationBar: SnakeNavigationBar.color(
+          height: 66,
+          behaviour: snakeBarStyle,
+          snakeShape: snakeShape,
+          shape: bottomBarShape,
+          padding: padding,
+          elevation: 4,
+          ///configuration for SnakeNavigationBar.color
+          snakeViewColor: const Color(0xFFE0E0E0),
+          selectedItemColor:
+          snakeShape == SnakeShape.indicator ? selectedColor : null,
+          unselectedItemColor: unselectedColor,
 
-        ///configuration for SnakeNavigationBar.gradient
-        // snakeViewGradient: selectedGradient,
-        // selectedItemGradient: snakeShape == SnakeShape.indicator ? selectedGradient : null,
-        // unselectedItemGradient: unselectedGradient,
+          ///configuration for SnakeNavigationBar.gradient
+          // snakeViewGradient: selectedGradient,
+          // selectedItemGradient: snakeShape == SnakeShape.indicator ? selectedGradient : null,
+          // unselectedItemGradient: unselectedGradient,
 
-        showUnselectedLabels: showUnselectedLabels,
-        showSelectedLabels: showSelectedLabels,
+          showUnselectedLabels: showUnselectedLabels,
+          showSelectedLabels: showSelectedLabels,
 
-        currentIndex: _selectedIndex,
-        onTap: (index) => setState(() => _selectedIndex = index),
-        items: [
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/home_icon.svg',
-                semanticsLabel: 'home_icon',
-                colorFilter: ColorFilter.mode(_selectedIndex == 0? AppColors.red : AppColors.navBarText, BlendMode.srcIn)
-              ),
-              label: 'Home'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/favorite_icon.svg',
-                semanticsLabel: 'favorite_icon',
-                colorFilter: ColorFilter.mode(_selectedIndex == 1? AppColors.red : AppColors.navBarText, BlendMode.srcIn)
-              ),
-              label: 'Favorite'),
-          BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/profile_icon.svg',
-                semanticsLabel: 'profile_icon',
-                colorFilter: ColorFilter.mode(_selectedIndex == 2? AppColors.red : AppColors.navBarText, BlendMode.srcIn)
-              ),
-              label: 'Profile'),
-        ],
-        selectedLabelStyle: navBar.copyWith(color: AppColors.brown),
-        unselectedLabelStyle: navBar,
+          currentIndex: _selectedIndex,
+          onTap: (index) => setState(() => _selectedIndex = index),
+          items: [
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/images/home_icon.svg',
+                  semanticsLabel: 'home_icon',
+                  colorFilter: ColorFilter.mode(_selectedIndex == 0? AppColors.red : AppColors.navBarText, BlendMode.srcIn)
+                ),
+                label: 'Home'),
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/images/favorite_icon.svg',
+                  semanticsLabel: 'favorite_icon',
+                  colorFilter: ColorFilter.mode(_selectedIndex == 1? AppColors.red : AppColors.navBarText, BlendMode.srcIn)
+                ),
+                label: 'Favorite'),
+            BottomNavigationBarItem(
+                icon: SvgPicture.asset(
+                  'assets/images/profile_icon.svg',
+                  semanticsLabel: 'profile_icon',
+                  colorFilter: ColorFilter.mode(_selectedIndex == 2? AppColors.red : AppColors.navBarText, BlendMode.srcIn)
+                ),
+                label: 'Profile'),
+          ],
+          selectedLabelStyle: navBar.copyWith(color: AppColors.brown),
+          unselectedLabelStyle: navBar,
+        ),
       ),
     );
   }

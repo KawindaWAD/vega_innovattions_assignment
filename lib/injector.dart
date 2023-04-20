@@ -4,9 +4,15 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vega_innovattions_assignmen/features/sign_up/data/repositories/user_registration_repository_impl.dart';
 
-import 'core/blocs/authentication/authentication_bloc.dart';
 import 'core/network/dio_client.dart';
 import 'core/network/network_info.dart';
+import 'features/common/data/datasources/news_remote_data_source.dart';
+import 'features/common/data/repositories/news_repository_impl.dart';
+import 'features/common/domain/repositories/news_repository.dart';
+import 'features/common/domain/usecases/get_news.dart';
+import 'features/common/presentation/blocs/authentication/authentication_bloc.dart';
+import 'features/dashboard/presentation/bloc/breaking_news/breaking_news_bloc.dart';
+import 'features/dashboard/presentation/bloc/top_news/top_news_bloc.dart';
 import 'features/sign_in/data/datasources/user_details_local_data_source.dart';
 import 'features/sign_in/data/repositories/user_details_repository_impl.dart';
 import 'features/sign_in/domain/repositories/user_details_repository.dart';
@@ -47,6 +53,17 @@ Future<void> setupLocators() async {
   /// Feature: authentication
   // Blocs
   sl.registerLazySingleton<AuthenticationBloc>(() => AuthenticationBloc());
+
+  /// Feature: News
+  // Blocs
+  sl.registerFactory<BreakingNewsBloc>(() => BreakingNewsBloc(getNews: sl()));
+  sl.registerFactory<TopNewsBloc>(() => TopNewsBloc(getNews: sl()));
+  // Use Cases
+  sl.registerLazySingleton<GetNews>(() => GetNews(newsRepository: sl(),));
+  // Repositories
+  sl.registerLazySingleton<NewsRepository>(() => NewsRepositoryImpl(networkInfo: sl(), remoteDataSource: sl()));
+  // Data Sources
+  sl.registerLazySingleton<NewsRemoteDataSource>(() => NewsRemoteDataSourceImpl(dioClient: sl(),));
 
   /// Network
   sl.registerFactory<Dio>(() => Dio());

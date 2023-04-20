@@ -5,8 +5,8 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 
-import '../../../../../core/blocs/event_transformer.dart';
 import '../../../../../core/errors/failures.dart';
+import '../../../../common/presentation/blocs/event_transformer.dart';
 import '../../../data/models/form_models/email_form_model.dart';
 import '../../../data/models/form_models/name_form_model.dart';
 import '../../../data/models/form_models/password_form_model.dart';

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 /// Cash network image loading widget
-Widget shimmerLoader({Widget? child}) {
+Widget shimmerLoader({Widget? child, Color? baseColor, Color? highlightColor }) {
   return Shimmer.fromColors(
-    baseColor: Colors.grey.shade200,
-    highlightColor: Colors.grey.shade300,
+    baseColor: baseColor?? Colors.grey.shade100,
+    highlightColor: highlightColor?? Colors.white,
     child: child ??
         Container(
           height: double.infinity,

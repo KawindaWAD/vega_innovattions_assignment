@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:vega_innovattions_assignmen/core/presentation/bounce_widget.dart';
 
-import '../../utils/colors.dart';
-import '../../utils/text_style.dart';
+import '../../../../core/utils/colors.dart';
+import '../../../../core/utils/text_style.dart';
+import '../bounce_widget.dart';
 
 class MainButton extends StatelessWidget {
   final Function() onTap;

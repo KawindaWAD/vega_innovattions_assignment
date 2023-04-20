@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import '../models/dio_response_model.dart';
+import '../../features/common/data/models/dio_response_model.dart';
 import '../network/server_error_data.dart';
 
 /// Throws when there's no shared pref data to fetch

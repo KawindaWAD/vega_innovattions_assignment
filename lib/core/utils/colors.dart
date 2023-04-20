@@ -19,5 +19,6 @@ abstract class AppColors {
   static const Color blackTextField = Color(0xFF262A34);
 
   static const Color navBarText = Color(0xFFA6A6A6);
+  static const Color outline = Color(0xFFF0F1FA);
 
 }

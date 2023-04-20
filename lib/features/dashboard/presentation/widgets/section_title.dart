@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../core/presentation/bounce_widget.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/text_style.dart';
+import '../../../common/presentation/bounce_widget.dart';
 
 class SectionTitle extends StatelessWidget {
   final String title;

@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vega_innovattions_assignmen/core/utils/colors.dart';
 
-import 'core/blocs/authentication/authentication_bloc.dart';
-import 'features/dashboard/presentation/dashboard.dart';
+import 'features/common/presentation/blocs/authentication/authentication_bloc.dart';
 import 'features/home/presentation/home.dart';
 import 'features/sign_in/presentation/login_screen.dart';
 import 'injector.dart';
@@ -29,6 +29,7 @@ class VegaApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
+            debugShowCheckedModeBanner: false,
             home: BlocListener<AuthenticationBloc, AuthenticationState>(
               listener: (context, state) => _authListener(context, state),
               child: _getNextScreen(context),
@@ -44,6 +45,13 @@ class VegaApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
+
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: AppColors.white,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+    );
 
     switch(context.read<AuthenticationBloc>().state.authenticationStatus) {
       case AuthenticationStatus.authenticated: return const HomeScreenWrapper();

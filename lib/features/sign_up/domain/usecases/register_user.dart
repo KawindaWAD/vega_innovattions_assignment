@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+import 'package:vega_innovattions_assignmen/features/common/domain/usecases/usecase.dart';
 
 import '../../../../core/errors/failures.dart';
-import '../../../../core/usecases/usecase.dart';
 import '../repositories/user_registration_repository.dart';
 
 class RegisterUser implements UseCase<bool, UserRegistrationInfo> {

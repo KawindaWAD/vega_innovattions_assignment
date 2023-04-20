@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:formz/formz.dart';
-import 'package:vega_innovattions_assignmen/core/presentation/custom_flush_bar.dart';
 import 'package:vega_innovattions_assignmen/features/sign_up/data/models/form_models/phone_number_form_model.dart';
 
-import '../../../core/presentation/widgets/main_button.dart';
-import '../../../core/presentation/widgets/text_fild.dart';
 import '../../../core/utils/colors.dart';
 import '../../../core/utils/text_style.dart';
 import '../../../injector.dart';
+import '../../common/presentation/custom_flush_bar.dart';
+import '../../common/presentation/widgets/main_button.dart';
+import '../../common/presentation/widgets/text_fild.dart';
 import '../data/models/form_models/email_form_model.dart';
 import '../data/models/form_models/name_form_model.dart';
 import '../data/models/form_models/password_form_model.dart';
