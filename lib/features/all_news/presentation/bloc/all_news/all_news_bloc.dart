@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import '../../../../../core/enums/api_type.dart';
 import '../../../../../core/enums/bloc_state_status.dart';
 import '../../../../../core/errors/failures.dart';
+import '../../../../../core/utils/const/const.dart';
 import '../../../../common/domain/entities/news_entity.dart';
 import '../../../../common/domain/entities/news_param.dart';
 import '../../../../common/domain/usecases/get_news.dart';
@@ -24,6 +25,7 @@ class AllNewsBloc extends Bloc<AllNewsEvent, AllNewsState> {
   AllNewsBloc({required this.allNewsState, required this.getNews}) : super(allNewsState) {
     on<NewsDataRequested>(_newsDataRequested, transformer: Transformer.throttleDroppable());
     on<CategoryChanged>(_categoryChanged, transformer: Transformer.throttleRestartable());
+    on<FilterApplied>(_filterApplied, transformer: Transformer.throttleRestartable());
 
     scrollController.addListener(_onScroll);
   }
@@ -91,9 +93,38 @@ class AllNewsBloc extends Bloc<AllNewsEvent, AllNewsState> {
       } else {
         message = "Something went wrong!";
       }
-      emit(state.copyWith(status: Status.loadFailure, errorMessage: message,));
+      emit(state.copyWith(status: Status.loadFailure, errorMessage: message, selectedCountry: country));
     }, (newsData) {
-      emit(state.copyWith(status: Status.loadSuccess, news: newsData, pageNumber: 2),);
+      emit(state.copyWith(status: Status.loadSuccess, news: newsData, pageNumber: 2, selectedCountry: country),);
+    });
+  }
+
+  Future<FutureOr<void>> _filterApplied(FilterApplied event, Emitter<AllNewsState> emit) async {
+    scrollController.jumpTo(0);
+    emit(state.copyWith(status: Status.loadInProgress, selectedCountry: event.countryName));
+
+    String? country = event.countryName == 'all'? null : event.countryName;
+    String? cat = state.selectedCategory == 'all'? null : state.selectedCategory;
+
+    /// Either category of county should not null
+    if(cat == null && country == null) {
+      cat = categoryStringList.first;
+    }
+
+    /// Fetch data
+    Either<Failure, News> result = await getNews(NewsParams(page: 1, category: cat, country: country));
+    result.fold((failure) {
+      String message = '';
+      if(failure is ServerFailure) {
+        message = failure.message;
+      } else if(failure is NoConnectionFailure) {
+        message = "You are not connect to the internet!";
+      } else {
+        message = "Something went wrong!";
+      }
+      emit(state.copyWith(status: Status.loadFailure, errorMessage: message, selectedCategory: cat));
+    }, (newsData) {
+      emit(state.copyWith(status: Status.loadSuccess, news: newsData, pageNumber: 2, selectedCategory: cat),);
     });
   }
 }

@@ -27,7 +27,7 @@ class ArticleCard extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           clipBehavior: Clip.antiAlias,
           decoration: const BoxDecoration(
-            color: Colors.amber,
+            color: Colors.transparent,
             borderRadius: BorderRadius.all(Radius.circular(8)),
           ),
           child: LayoutBuilder(

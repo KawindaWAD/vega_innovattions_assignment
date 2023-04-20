@@ -27,7 +27,7 @@ class SliderCard extends StatelessWidget {
                 clipBehavior: Clip.antiAlias,
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
-                  color: Colors.amber,
+                  color: Colors.transparent,
                   borderRadius: BorderRadius.all(Radius.circular(8)),
                 ),
                 child: Stack(

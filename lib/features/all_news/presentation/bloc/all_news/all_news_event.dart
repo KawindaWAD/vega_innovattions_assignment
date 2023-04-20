@@ -19,3 +19,14 @@ class CategoryChanged extends AllNewsEvent {
   @override
   List<Object> get props => [categoryName];
 }
+
+class FilterApplied extends AllNewsEvent {
+  final String countryName;
+
+  const FilterApplied({
+    required this.countryName,
+  });
+
+  @override
+  List<Object> get props => [countryName];
+}

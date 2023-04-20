@@ -6,7 +6,6 @@ import 'package:vega_innovattions_assignmen/core/enums/bloc_state_status.dart';
 import 'package:vega_innovattions_assignmen/core/utils/colors.dart';
 import 'package:vega_innovattions_assignmen/features/all_news/presentation/widgets/header.dart';
 
-import '../../../core/utils/text_style.dart';
 import '../../../injector.dart';
 import '../../common/presentation/widgets/article_card.dart';
 import '../../common/presentation/widgets/error_widget.dart';
@@ -74,12 +73,6 @@ class AllNewsScreen extends StatelessWidget {
               ),
               SliverToBoxAdapter(
                 child: BlocBuilder<AllNewsBloc, AllNewsState>(
-                  // buildWhen: (previous, current) {
-                  //   if(previous.nextPage != current.nextPage || previous.searchText != current.searchText) {
-                  //     return true;
-                  //   }
-                  //   return false;
-                  // },
                   builder: (context, state) {
                     if(state.status == Status.loadFailure) {
                       return ErrorDisplayWidget(message: state.errorMessage,);

@@ -1,7 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vega_innovattions_assignmen/core/functions/extentions/string_extentions.dart';
+import 'package:vega_innovattions_assignmen/features/all_news/presentation/bloc/all_news/all_news_bloc.dart';
 
 import '../../../../core/functions/change_status_bar.dart';
 import '../../../../core/utils/colors.dart';
@@ -79,27 +82,31 @@ class AllNewsHeaderDelegate extends SliverPersistentHeaderDelegate {
             right: 15,
             child: Opacity(
               opacity: (1 - shrinkOffset / maxExtent),
-              child: RichText(
-                textAlign: TextAlign.start,
-                text: const TextSpan(
-                  text: 'About 11,130 results for ',
-                  style: TextStyle(
-                      fontSize: 14,
-                      color: AppColors.brown,
-                      fontWeight: FontWeight.w900,
-                      fontFamily: 'Nunito',
-                      fontStyle: FontStyle.normal
-                  ),
-                  children: <TextSpan>[
-                    TextSpan(text: 'Covid New Variant', style: TextStyle(
-                        fontSize: 14,
-                        color: AppColors.brown,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'Nunito',
-                        fontStyle: FontStyle.normal
-                    )),
-                  ],
-                ),
+              child: BlocBuilder<AllNewsBloc, AllNewsState>(
+                builder: (context, state) {
+                  return RichText(
+                    textAlign: TextAlign.start,
+                    text: TextSpan(
+                      text: 'About ${state.news.totalResults} results for ',
+                      style: const TextStyle(
+                          fontSize: 14,
+                          color: AppColors.brown,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'Nunito',
+                          fontStyle: FontStyle.normal
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(text: state.selectedCategory.capitalize(), style: const TextStyle(
+                            fontSize: 14,
+                            color: AppColors.brown,
+                            fontWeight: FontWeight.w800,
+                            fontFamily: 'Nunito',
+                            fontStyle: FontStyle.italic
+                        )),
+                      ],
+                    ),
+                  );
+                },
               ),
             ),
           ),
