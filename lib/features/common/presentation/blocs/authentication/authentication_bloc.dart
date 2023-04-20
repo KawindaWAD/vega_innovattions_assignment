@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
+import '../../../../../core/functions/change_status_bar.dart';
 import '../event_transformer.dart';
 
 part 'authentication_event.dart';
@@ -16,6 +17,7 @@ class AuthenticationBloc extends HydratedBloc<AuthenticationEvent, Authenticatio
   }
 
   FutureOr<void> _loggedIn(LoggedIn event, Emitter<AuthenticationState> emit) {
+    changeStatusBar(false);
     emit(state.copyWith(
         authenticationStatus: event.authenticationStatus,
         token: event.token));

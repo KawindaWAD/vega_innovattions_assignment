@@ -42,18 +42,20 @@ class VegaApp extends StatelessWidget {
 
   /// Navigate to next screen base on user authentication and device type
   Widget _getNextScreen(BuildContext context) {
+    AuthenticationStatus authState =  context.read<AuthenticationBloc>().state.authenticationStatus;
+
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
 
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: AppColors.white,
-        statusBarIconBrightness: Brightness.dark,
+      SystemUiOverlayStyle(
+        statusBarColor: authState == AuthenticationStatus.authenticated? AppColors.white : Colors.transparent,
+        statusBarIconBrightness: authState == AuthenticationStatus.authenticated? Brightness.dark : Brightness.light,
       ),
     );
 
-    switch(context.read<AuthenticationBloc>().state.authenticationStatus) {
+    switch(authState) {
       case AuthenticationStatus.authenticated: return const HomeScreenWrapper();
       default: return const LoginScreenWrapper();
     }

@@ -55,7 +55,7 @@ Widget textField({
                   hintText: hintTxt,
                   hintStyle: hintStyle,
                 ),
-                style: headline2,
+                style: headline3.copyWith(color: AppColors.white),
                 onFieldSubmitted: onSubmitted,
                 onChanged: onChanged,
               ),

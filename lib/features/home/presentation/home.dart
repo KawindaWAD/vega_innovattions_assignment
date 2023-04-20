@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -10,6 +11,7 @@ import '../../../injector.dart';
 import '../../dashboard/presentation/bloc/breaking_news/breaking_news_bloc.dart';
 import '../../dashboard/presentation/bloc/top_news/top_news_bloc.dart';
 import '../../dashboard/presentation/dashboard.dart';
+import '../../profile/presentation/profile_screen.dart';
 
 class HomeScreenWrapper extends StatelessWidget {
   const HomeScreenWrapper({Key? key}) : super(key: key);
@@ -73,12 +75,17 @@ class HomeScreenState
 
   static final List<Widget> _widgetOptions = <Widget>[
     const DashBoard(),
-    SizedBox(child: Container(
-      width: double.infinity,
-      height: 30000,
-      color: Colors.green,
-    )),
-    Container(),
+    SizedBox(
+      width: ScreenUtil().screenWidth,
+      height: ScreenUtil().screenHeight,
+      child: Center(
+        child: Text(
+          'Not developed yet!',
+          style: headline2.copyWith(color: AppColors.brown),
+        ),
+      ),
+    ),
+    const ProfileScreenWrapper(),
   ];
 
   @override
